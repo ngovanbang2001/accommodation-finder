@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+
+    <style>
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .brandName {
+            color: #1786fa;
+        }
+
+        .logo {
+            width: 150px;
+            height: fit-content;
+            object-fit: contain;
+        }
+
+    </style>
+
+</head>
+<body>
+<div>
+    <div style="margin: 8px 0">
+        <img src="https://res.cloudinary.com/dqrn1uojt/image/upload/v1675363548/logo_ariuiy.png" alt="logo" class="logo">
+    </div>
+    <div>
+        Chào <strong>{{userDisplayName}}</strong>,
+    </div>
+    <p>Cảm ơn bạn sử dụng dịch vụ của <strong class="brandName">TROTOT.</strong></p>
+    <div>
+        <div>Bạn vừa yêu cầu đăng tin tại <strong>trotot.online</strong>, với thông tin như sau:</div>
+        <ul>
+            <li>Tiêu đề: <strong>{{title}}</strong></li>
+            <li>Loại tin: <strong>{{type}}</strong></li>
+            <li>Thời hạn: <strong>{{duration}}</strong></li>
+            <li>Tổng thanh toán: <strong>{{totalPayment}} <span> &#8363;</span></strong></li>
+        </ul>
+        Tin đăng của bạn đang ở trạng thái <strong>chờ phê duyệt</strong>.
+    </div>
+    <br/>
+    <div>Chúng tôi sẽ tiến hành kiểm duyệt nội dung tin đăng của bạn trong thời gian sớm nhất. Và thông tin tới bạn khi
+        quá trình này hoàn tất.
+    </div>
+    <br/>
+    <div>Trong quá trình phê duyệt, bạn có thể thu hồi yêu cầu đăng tin <a class="link" href=""> tại đây</a> nếu có nhu
+        cầu.
+    </div>
+</div>
+<br/>
+<div>
+    <div style="font-style: italic">Nếu có thắc mắc, vui lòng liên hệ lại với chúng tôi qua Hotline:
+        <strong>0964788888.</strong></div>
+    <div style="margin: 4px 0">
+        Trân trọng.
+    </div>
+</div>
+</body>
+</html>

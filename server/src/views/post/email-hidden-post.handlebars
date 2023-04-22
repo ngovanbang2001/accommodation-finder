@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+
+    <style>
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .brandName {
+            color: #1786fa;
+        }
+
+        .logo {
+            width: 150px;
+            height: fit-content;
+            object-fit: contain;
+        }
+        .link {
+            color: #1786fa;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        .bg-img {
+            background: #1786fa;
+            padding: 16px 0;
+            display: flex;
+            justify-content: center;
+            margin: 8px 0;
+        }
+
+    </style>
+
+</head>
+<body>
+<div>
+    <div style="margin: 8px 0">
+        <img src="https://res.cloudinary.com/dqrn1uojt/image/upload/v1675363548/logo_ariuiy.png" alt="logo" class="logo">
+    </div>
+    <div>
+        Chào <strong>{{userDisplayName}}</strong>,
+    </div>
+    <p>Cảm ơn bạn sử dụng dịch vụ của <strong class="brandName">TROTOT.</strong></p>
+    <div>
+        <div>Tin đăng "<strong>{{title}}</strong>" của bạn đã bị <strong>ẩn</strong> khỏi Website. Do vi phạm chính sách
+            cộng đồng của chúng tôi.
+        </div>
+        <br/>
+        <div style="margin-bottom: 16px">Xem thông tin chi tiết về chính sách cộng đồng của chúng tôi: <a class="link"
+                                                                                                          href={{link}}>Tại
+            đây.</a></div>
+    </div>
+    <div style="margin: 8px 0">
+        <div style="font-style: italic">Nếu bạn có bất kỳ thắc mắc nào, vui lòng liên hệ lại với chúng tôi qua Hotline:
+            <strong>0964788888</strong> để được hỗ trợ và giải đáp.
+        </div>
+        <div style="margin: 4px 0">
+            Trân trọng.
+        </div>
+    </div>
+</div>
+</body>
+</html>

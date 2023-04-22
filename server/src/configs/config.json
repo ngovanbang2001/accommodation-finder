@@ -1,0 +1,35 @@
+{
+  "development": {
+    "username": "root",
+    "password": "ngovanbang",
+    "database": "accommodation-finder",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 3306,
+    "logging": false,
+    "query": {
+      "raw": true
+    },
+    "timezone": "+07:00"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "accommodation-finder",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "bangngo",
+    "password": "ngovanbang",
+    "database": "accommodation-finder",
+    "host": "167.179.97.51",
+    "dialect": "mysql",
+    "port": 13306,
+    "logging": false,
+    "query": {
+      "raw": true
+    },
+    "timezone": "+07:00"
+  }
+}

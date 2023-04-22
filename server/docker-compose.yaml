@@ -1,0 +1,47 @@
+version: '3.2'
+
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "13306:3306"
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    volumes:
+      - ../db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: thuandepzairoot
+      MYSQL_DATABASE: accommodation-finder
+      MYSQL_USER: thuanhq
+      MYSQL_PASSWORD: thuandepzai
+    restart: always
+    networks:
+      - accommodation
+  appserver:
+    image: "server:latest"
+    ports:
+      - '8200:3000'
+    environment:
+      PORT: '3000'
+      TZ: 'Asia/Bangkok'
+      HOST_DB: "mysql"
+      DB_PORT: "3306"
+      PASSWORD_SQL: "thuandepzai"
+      USERNAME_SQL: 'thuanhq'
+      CLOUD_NAME: "dxjrsffeo"
+      API_KEY_CLOUDINARY: "145441169219581"
+      API_SECRET_CLOUDINARY: "KQ8npWR4yLqOfK9cLQieU6W_bMs"
+
+    networks:
+      - accommodation
+    restart: always
+  web:
+    image: "web:latest"
+    ports:
+      - '8201:3000'
+    environment:
+      PORT: '3000'
+      TZ: 'Asia/Bangkok'
+    restart: always
+networks:
+  accommodation:
+    driver: bridge

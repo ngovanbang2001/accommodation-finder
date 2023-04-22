@@ -1,0 +1,22 @@
+.menuContent {
+  width: 200px;
+  overflow: hidden;
+  height: 0;
+  visibility: hidden;
+  animation: slide-down 0.3s linear both;
+}
+
+@keyframes slide-down {
+  0% {
+    visibility: hidden;
+    height: 0;
+  }
+  95% {
+    visibility: visible;
+    height: 100px;
+  }
+  100% {
+    visibility: visible;
+    height: auto;
+  }
+}
