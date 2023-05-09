@@ -11,15 +11,10 @@ import { authUpdateProfile } from 'store/auth/auth-slice'
 
 const sideBars = [
   { id: 1, icon: 'fa-regular fa-ballot', title: 'Quản lý tin đăng' },
-  {
-    id: 2,
-    icon: 'fa-regular fa-newspaper',
-    title: 'Quản lý tin tức',
-  },
-  { id: 3, icon: 'fa-regular fa-circle-dollar', title: 'Cấu hình giá' },
-  { id: 4, icon: 'fa-regular fa-users', title: 'Quản lý tài khoản' },
-  { id: 5, icon: 'fa-regular fa-user', title: 'Quản lý thông tin cá nhân' },
-  { id: 6, icon: 'fa-regular fa-arrow-right-from-bracket', title: 'Đăng xuất' },
+  { id: 2, icon: 'fa-regular fa-circle-dollar', title: 'Cấu hình giá' },
+  { id: 3, icon: 'fa-regular fa-users', title: 'Quản lý tài khoản' },
+  { id: 4, icon: 'fa-regular fa-user', title: 'Quản lý thông tin cá nhân' },
+  { id: 5, icon: 'fa-regular fa-arrow-right-from-bracket', title: 'Đăng xuất' },
 ]
 export default function SideBar(props) {
   const dispatch = useDispatch()
@@ -35,22 +30,18 @@ export default function SideBar(props) {
         break
       }
       case 2: {
-        router.replace(`/managements/new`)
-        break
-      }
-      case 3: {
         router.push(`/managements/price`)
         break
       }
-      case 4: {
+      case 3: {
         router.push(`/managements/account`)
         break
       }
-      case 5: {
+      case 4: {
         router.push(`/managements/profile`)
         break
       }
-      case 6: {
+      case 5: {
         try {
           const sessionId = Cookies.get(process.env.NEXT_PUBLIC_SESSION_ID)
           const res = await authAPI.logout(sessionId)
@@ -74,14 +65,12 @@ export default function SideBar(props) {
     if (router.pathname) {
       if (router.pathname.includes('post')) {
         setSideBarActive(1)
-      } else if (router.pathname.includes('new')) {
-        setSideBarActive(2)
       } else if (router.pathname.includes('account')) {
-        setSideBarActive(4)
-      } else if (router.pathname.includes('price')) {
         setSideBarActive(3)
+      } else if (router.pathname.includes('price')) {
+        setSideBarActive(2)
       } else if (router.pathname.includes('profile')) {
-        setSideBarActive(5)
+        setSideBarActive(4)
       }
     }
   }, [router])

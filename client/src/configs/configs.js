@@ -1,11 +1,3 @@
-import like from '@/assets/images/interactive/icon/like.svg'
-import love from '@/assets/images/interactive/icon/love.svg'
-import haha from '@/assets/images/interactive/icon/haha.svg'
-import wow from '@/assets/images/interactive/icon/wow.svg'
-import sad from '@/assets/images/interactive/icon/sad.svg'
-import angry from '@/assets/images/interactive/icon/angry.svg'
-
-let theme = ''
 if (typeof window !== 'undefined') {
   theme = localStorage.getItem('theme')
 }
@@ -51,7 +43,7 @@ export const menuUser = [
     path: '/deposit',
   },
   {
-    id: 115,
+    id: 6,
     title: 'Đăng xuất',
     icon: 'fa-regular fa-arrow-right-from-bracket',
     path: '/sign-in',
@@ -60,37 +52,31 @@ export const menuUser = [
 
 export const menuAdmin = [
   {
-    id: 2,
+    id: 1,
     title: 'Chỉnh sửa thông tin cá nhân',
     icon: 'fa-regular fa-pen-to-square',
     path: '/managements/profile',
   },
   {
-    id: 3,
+    id: 2,
     title: 'Quản lý tin đăng',
     icon: 'fa-regular fa-ballot',
     path: '/managements/post',
   },
   {
-    id: 4,
-    title: 'Quản lý tin tức',
-    icon: 'fa-regular fa-newspaper',
-    path: '/managements/new',
-  },
-  {
-    id: 5,
+    id: 3,
     title: 'Quản lý tài khoản người dùng',
     icon: 'fa-regular fa-users',
     path: '/managements/account',
   },
   {
-    id: 7,
+    id: 4,
     title: 'Cấu hình giá',
     icon: 'fa-regular fa-circle-dollar',
     path: '/managements/price',
   },
   {
-    id: 115,
+    id: 5,
     title: 'Đăng xuất',
     icon: 'fa-regular fa-arrow-right-from-bracket',
     path: '/sign-in',
