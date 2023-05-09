@@ -20,7 +20,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "bangngo",
+    "username": "root",
     "password": "ngovanbang",
     "database": "accommodation-finder",
     "host": "167.179.97.51",
