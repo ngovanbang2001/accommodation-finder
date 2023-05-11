@@ -1,37 +1,35 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useRouter } from "next/router";
-import { authUpdateProfile } from "store/auth/auth-slice";
-import { authAPI } from "apis/auth";
-import Cookies from "js-cookie";
-import { useDispatch } from "react-redux";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useRouter } from 'next/router'
+import { authUpdateProfile } from 'store/auth/auth-slice'
+import { authAPI } from 'apis/auth'
+import Cookies from 'js-cookie'
+import { useDispatch } from 'react-redux'
+import { removeToken } from 'utils/auth'
 
 const RightMenuItemDrawer = ({ item, showDrawerRight }) => {
-  const router = useRouter();
-  const dispatch = useDispatch();
+  const router = useRouter()
+  const dispatch = useDispatch()
   const handleClick = async () => {
-    if (item.id === 115) {
-      const sessionId = Cookies.get(process.env.NEXT_PUBLIC_SESSION_ID);
+    if (item.id === 6) {
+      const sessionId = Cookies.get(process.env.NEXT_PUBLIC_SESSION_ID)
       try {
-        const res = await authAPI.logout(sessionId);
+        const res = await authAPI.logout(sessionId)
         if (res.ok) {
-          dispatch(authUpdateProfile({}));
-          removeToken();
-          router.replace(`/`);
+          dispatch(authUpdateProfile({}))
+          removeToken()
+          router.replace(`/`)
         }
       } catch (e) {
-        console.log(e);
+        console.log(e)
       }
     } else if (item.path) {
-      router.push(item.path);
-      showDrawerRight(false);
+      router.push(item.path)
+      showDrawerRight(false)
     }
-  };
+  }
   return (
-    <div
-      className="flex items-center space-x-2 cursor-pointer"
-      onClick={handleClick}
-    >
+    <div className="flex items-center space-x-2 cursor-pointer" onClick={handleClick}>
       <div
         className={`w-[25px] h-[25px] md:w-[30px] md:h-[30px] bg-backgroundGray rounded-full flex items-center justify-center my-2.5`}
       >
@@ -39,11 +37,11 @@ const RightMenuItemDrawer = ({ item, showDrawerRight }) => {
       </div>
       <span className="font-semibold text-info">{item.title}</span>
     </div>
-  );
-};
+  )
+}
 
 RightMenuItemDrawer.propTypes = {
   item: PropTypes.object,
   showDrawerRight: PropTypes.func,
-};
-export default RightMenuItemDrawer;
+}
+export default RightMenuItemDrawer

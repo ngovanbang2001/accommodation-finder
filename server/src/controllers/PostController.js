@@ -453,8 +453,8 @@ export const approvePost = async (req, res) => {
         context: {
           title: postData.title,
           userDisplayName: postData.user.displayName,
-          link: `https://trotot.online/post/${strToSlug(postData.title)}-${postData.id}`,
-          linkLogin: `https://trotot.online/sign-in`,
+          link: `http://localhost:3000/post/${strToSlug(postData.title)}-${postData.id}`,
+          linkLogin: `http://localhost:3000/sign-in`,
         },
       }
 

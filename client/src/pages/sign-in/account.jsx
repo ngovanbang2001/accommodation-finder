@@ -43,7 +43,6 @@ export default function Permisstion() {
   const handleLogin = async (values) => {
     try {
       dispatch(loginWithPassword({ ...values }))
-      console.log('bang')
     } catch (e) {
       console.log(e)
     }

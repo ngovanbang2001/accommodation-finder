@@ -8,7 +8,7 @@ const qs = require('qs')
 
 export const paymentWithVNPay = async (req, res) => {
   try {
-    const tmnCode = 'CGXZLS0Z'
+    const tmnCode = 'R99MI2R2'
     let vnpUrl = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'
     const { amount } = req.body
     const data = {
@@ -16,10 +16,10 @@ export const paymentWithVNPay = async (req, res) => {
       vnp_Command: 'pay',
       vnp_CreateDate: moment().format('YYYYMMDDHHmmss'),
       vnp_CurrCode: 'VND',
-      vnp_IpAddr: '167.179.97.51',
+      vnp_IpAddr: '127.0.0.1',
       vnp_Locale: 'vn',
       vnp_OrderInfo: `Nap tien vao tai khoan ${req.user.id}. Số tiền ${formatPrice(amount)} VNĐ`,
-      vnp_ReturnUrl: 'https://api.trotot.online/payment/deposit',
+      vnp_ReturnUrl: 'http://localhost:8006/payment/deposit',
       vnp_TmnCode: tmnCode,
       vnp_TxnRef: moment().format('HHmmss'),
       vnp_Version: '2.0.1',
@@ -62,10 +62,10 @@ export async function handleDeposit(req, res) {
       const user = await db.User.findOne({ where: { id: deposit.userId }, raw: false })
       if (user) {
         await user.increment('balance', { by: deposit.amount })
-        res.redirect('https://trotot.online/profile/me')
+        res.redirect('http://localhost:3000/profile/me')
       }
     } else {
-      res.redirect('https://trotot.online/404')
+      res.redirect('http://localhost:3000/404')
     }
   } catch (e) {
     console.log(e)

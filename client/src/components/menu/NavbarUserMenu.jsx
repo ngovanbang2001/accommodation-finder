@@ -26,7 +26,7 @@ export default function NavbarUserMenu(props) {
       }
       window.dispatchEvent(new Event('storage'))
       return
-    } else if (item.id === 115) {
+    } else if (item.id === 6) {
       const sessionId = Cookies.get(process.env.NEXT_PUBLIC_SESSION_ID)
       const res = await authAPI.logout(sessionId)
       if (res.ok) {

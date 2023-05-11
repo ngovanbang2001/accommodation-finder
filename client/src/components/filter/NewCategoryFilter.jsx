@@ -1,25 +1,19 @@
-import { useRouter } from "next/router";
-import React from "react";
-import { useState } from "react";
-import Select from "react-select";
-import ButtonPrimary from "../button/ButtonPrimary";
-import ModalCreateNewCategory from "../modal/ModalCreateNewCategory";
-const NewCategoryFilter = ({
-  setKeyword,
-  keyword,
-  handleSearch,
-  handleAddCategory,
-}) => {
+import { useRouter } from 'next/router'
+import React from 'react'
+import { useState } from 'react'
+import Select from 'react-select'
+import ButtonPrimary from '../button/ButtonPrimary'
+const NewCategoryFilter = ({ setKeyword, keyword, handleSearch, handleAddCategory }) => {
   const handleSearchPost = (e) => {
-    e.preventDefault();
-    handleSearch();
-  };
+    e.preventDefault()
+    handleSearch()
+  }
   const handleClick = () => {
-    const modal = document.getElementById("modal-create-new-category-id");
+    const modal = document.getElementById('modal-create-new-category-id')
     if (modal) {
-      modal.click();
+      modal.click()
     }
-  };
+  }
 
   return (
     <div className="py-4">
@@ -30,7 +24,7 @@ const NewCategoryFilter = ({
             <input
               placeholder="Nhập từ khóa để tìm khóa"
               onChange={(e) => {
-                setKeyword(e.target.value);
+                setKeyword(e.target.value)
               }}
               value={keyword}
               className="w-full py-2.5 pl-[30px] pr-3 rounded-lg outline-none focus:border-2 focus:border-primary border border-gray-200 bg-base-100"
@@ -46,12 +40,8 @@ const NewCategoryFilter = ({
           />
         </div>
       </div>
-      <ModalCreateNewCategory
-        id={"modal-create-category-2"}
-        handleAddCategory={handleAddCategory}
-      />
     </div>
-  );
-};
+  )
+}
 
-export default NewCategoryFilter;
+export default NewCategoryFilter

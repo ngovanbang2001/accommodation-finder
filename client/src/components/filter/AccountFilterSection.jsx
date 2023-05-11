@@ -1,18 +1,18 @@
-import { useRouter } from "next/router";
-import React from "react";
+import { useRouter } from 'next/router'
+import React from 'react'
 const AccountFilterSection = ({ setKeyword, keyword, handleSearch }) => {
-  const router = useRouter();
+  const router = useRouter()
   const handleSearchPost = (e) => {
-    e.preventDefault();
-    handleSearch();
-  };
+    e.preventDefault()
+    handleSearch()
+  }
 
   const handleShowModal = () => {
-    const modal = document.getElementById("modal-create-account");
+    const modal = document.getElementById('modal-create-account')
     if (modal) {
-      modal.click();
+      modal.click()
     }
-  };
+  }
 
   return (
     <div className="py-4">
@@ -23,23 +23,16 @@ const AccountFilterSection = ({ setKeyword, keyword, handleSearch }) => {
             <input
               placeholder="Tìm kiếm tên người dùng"
               onChange={(e) => {
-                setKeyword(e.target.value);
+                setKeyword(e.target.value)
               }}
               value={keyword}
               className="w-full py-2.5 pl-[30px] pr-3 rounded-lg outline-none focus:border-2 focus:border-primary border border-gray-200 bg-base-100"
             />
           </div>
         </form>
-        <div
-          className="w-[200px] bg-primary p-3 rounded-lg text-white flex items-center justify-center space-x-1 cursor-pointer"
-          onClick={handleShowModal}
-        >
-          <i className="fa-regular fa-plus text-xs"></i>
-          <span className="font-bold text-sm">Tạo tài khoản</span>
-        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AccountFilterSection;
+export default AccountFilterSection

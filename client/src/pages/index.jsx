@@ -6,8 +6,6 @@ import FeatureSection from '@/components/home/FeatureSection'
 import AreaMotelRoom from '@/components/home/area-motel-room/AreaMotelRoom'
 import HomePostList from '@/components/post/HomePostList'
 import AboutSection from '@/components/about/AboutSection'
-import RealEstateExpertsSection from '@/components/real-estate-experts/RealEstateExpertsSection'
-import NewHomeSection from '@/components/home/news/NewHomeSection'
 import TitleSection from '@/components/common/TitleSection'
 import HorizontalList from '@/components/common/HorizontalList'
 import ServiceSection from '@/components/home/services/ServiceSection'
@@ -49,8 +47,6 @@ export default function Home() {
             <HomePostList title={'Tin đăng về Văn phòng/Mặt bằng'} category={3} />
             <HomePostList title={'Tin đăng về Phòng trọ'} category={4} />
           </div>
-          {/* <RealEstateExpertsSection /> */}
-          <NewHomeSection />
           <AboutSection />
         </div>
       </div>

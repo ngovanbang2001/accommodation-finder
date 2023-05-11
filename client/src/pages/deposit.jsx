@@ -1,16 +1,16 @@
-import ButtonPrimary from "@/components/button/ButtonPrimary";
-import FormGroup from "@/components/common/FormGroup";
-import React, { useEffect, useState } from "react";
-import { formatPrice } from "utils/common";
-import { paymentAPI } from "apis/payment";
-import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
-import { useRouter } from "next/router";
-import Image from "next/image";
-import logo_vnpay from "@/assets/images/logo-vnpay.png";
-import icon_vnpay from "@/assets/images/Icon-VNPAY-QR.webp";
-import { userAPI } from "apis/user";
-import { authUpdateProfile } from "store/auth/auth-slice";
+import ButtonPrimary from '@/components/button/ButtonPrimary'
+import FormGroup from '@/components/common/FormGroup'
+import React, { useEffect, useState } from 'react'
+import { formatPrice } from 'utils/common'
+import { paymentAPI } from 'apis/payment'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
+import logo_vnpay from '@/assets/images/logo-vnpay.png'
+import icon_vnpay from '@/assets/images/Icon-VNPAY-QR.webp'
+import { userAPI } from 'apis/user'
+import { authUpdateProfile } from 'store/auth/auth-slice'
 const amountTemplate = [
   {
     id: 1,
@@ -28,28 +28,28 @@ const amountTemplate = [
     id: 4,
     value: 500000,
   },
-];
+]
 const Payment = () => {
-  const [dataPayment, setDataPayment] = useState(null);
-  const [amount, setAmount] = useState();
-  const [errorAmount, setErrorAmount] = useState(null);
-  const profile = useSelector((state) => state.auth.profile);
-  const [showInfoPayment, setShowInfoPayment] = useState(false);
-  const dispatch = useDispatch();
+  const [dataPayment, setDataPayment] = useState(null)
+  const [amount, setAmount] = useState()
+  const [errorAmount, setErrorAmount] = useState(null)
+  const profile = useSelector((state) => state.auth.profile)
+  const [showInfoPayment, setShowInfoPayment] = useState(false)
+  const dispatch = useDispatch()
   useEffect(() => {
-    setShowInfoPayment(!showInfoPayment);
-  }, [dataPayment]);
+    setShowInfoPayment(!showInfoPayment)
+  }, [dataPayment])
 
-  const router = useRouter();
+  const router = useRouter()
 
   const handleChangeInput = (e) => {
-    setAmount(e.target.value);
+    setAmount(e.target.value)
     if (!e.target.value || e.target.value < 10000) {
-      setErrorAmount("Số tiền không hợp lệ");
+      setErrorAmount('Số tiền không hợp lệ')
     } else {
-      setErrorAmount("");
+      setErrorAmount('')
     }
-  };
+  }
 
   const handleDeposit = async () => {
     try {
@@ -57,24 +57,24 @@ const Payment = () => {
         const res = await paymentAPI.desposit({
           amount,
           id: profile.id,
-        });
+        })
         if (res) {
-          const profileRes = await userAPI.getProfile();
-          dispatch(authUpdateProfile({ ...profileRes }));
-          router.push(res.url);
+          const profileRes = await userAPI.getProfile()
+          dispatch(authUpdateProfile({ ...profileRes }))
+          router.push(res.url)
         }
       } else {
-        setErrorAmount("Số tiền không hợp lệ");
+        setErrorAmount('Số tiền không hợp lệ')
       }
     } catch (e) {
-      console.log(e);
+      console.log(e)
     }
-  };
+  }
 
   const handleSetAmount = (item) => {
-    setAmount(item.value);
-    setErrorAmount("");
-  };
+    setAmount(item.value)
+    setErrorAmount('')
+  }
   return (
     <div className="bg-base-200">
       <div className="mx-auto py-16 max-w-[700px]">
@@ -88,8 +88,7 @@ const Payment = () => {
             <span> &#8363;</span>
           </span>
           <p className="text-center">
-            Hãy đảm bảo số dư tài khoản luôn đủ để sử dụng các dịch vụ của chúng
-            tôi.
+            Hãy đảm bảo số dư tài khoản luôn đủ để sử dụng các dịch vụ của chúng tôi.
           </p>
         </div>
         <div className="p-4 bg-base-100 rounded-lg my-8">
@@ -99,17 +98,15 @@ const Payment = () => {
                 <FormGroup isMb={false}>
                   <div className="flex flex-col pb-2">
                     <label className="font-semibold">Số tiền</label>
-                    <span className="text-sm italic">
-                      * Số tiền tối thiểu là 10.000đ
-                    </span>
+                    <span className="text-sm italic">* Số tiền tối thiểu là 10.000đ</span>
                   </div>
                   <input
-                    type={"number"}
+                    type={'number'}
                     value={amount}
-                    placeholder={"VD: 20000"}
+                    placeholder={'VD: 20000'}
                     onChange={(e) => handleChangeInput(e)}
                     className={`p-3 rounded-lg border ${
-                      errorAmount ? "border-red-500" : "border-gray-200"
+                      errorAmount ? 'border-red-500' : 'border-gray-200'
                     }`}
                   />
                   <span className="text-sm text-red-500">{errorAmount}</span>
@@ -133,31 +130,31 @@ const Payment = () => {
           <div className="font-semibold py-2">Thanh toán qua tài khoản</div>
           <div
             className={`box-shadow rounded-lg p-2 ${
-              errorAmount ? "cursor-auto" : "cursor-pointer"
+              errorAmount ? 'cursor-auto' : 'cursor-pointer'
             }`}
             onClick={handleDeposit}
           >
             <div className="flex items-center p-2 justify-center rounded-lg border-2 border-primary">
               <Image
-                alt={"icon-vn-pay"}
+                alt={'icon-vn-pay'}
                 src={icon_vnpay}
                 width={50}
                 height={25}
-                className={"object-contain"}
+                className={'object-contain'}
               />
               <Image
-                alt={"logo-vn-pay"}
+                alt={'logo-vn-pay'}
                 src={logo_vnpay}
                 width={100}
                 height={30}
-                className={"object-contain"}
+                className={'object-contain'}
               />
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Payment;
+export default Payment

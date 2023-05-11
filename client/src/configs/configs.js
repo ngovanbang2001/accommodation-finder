@@ -1,3 +1,5 @@
+let theme = ''
+
 if (typeof window !== 'undefined') {
   theme = localStorage.getItem('theme')
 }
