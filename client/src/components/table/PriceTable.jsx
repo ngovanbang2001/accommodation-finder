@@ -206,7 +206,7 @@ const PriceTable = ({
               <th>Ưu điểm</th>
               <th>Trạng thái</th>
               <th>Kích hoạt</th>
-              <th>Thao tác</th>
+              {/* <th>Thao tác</th> */}
             </tr>
           </thead>
           <tbody>
@@ -257,7 +257,7 @@ const PriceTable = ({
                       onChange={() => handleActivePostType(item)}
                     />
                   </td>
-                  <td>
+                  {/* <td>
                     <div className="flex items-center justify-center space-x-2">
                       <div
                         title="Xem chi tiết"
@@ -285,7 +285,7 @@ const PriceTable = ({
                         </div>
                       </label>
                     </div>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
           </tbody>

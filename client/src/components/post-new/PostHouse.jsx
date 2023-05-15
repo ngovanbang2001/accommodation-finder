@@ -121,7 +121,6 @@ export default function PostHouse({ category, setTabActive, setPost, tradingForm
     { value: 3, label: 'Nhà biệt thự' },
     { value: 4, label: 'Nhà phố liền kề' },
   ]
-  console.log('e', errors)
   const watcherProvince = watch('province')
   const watcherStreet = watch('street')
   const watcherDistrict = watch('district')

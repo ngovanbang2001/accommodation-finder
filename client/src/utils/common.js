@@ -10,7 +10,7 @@ export const checkEmail = (email) => {
 }
 
 export const formatPrice = (price) => {
-  if (price >= 0) {
+  if (price && price >= 0) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   }
 }
